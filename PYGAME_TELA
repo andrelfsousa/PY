@@ -1,0 +1,33 @@
+import pygame
+from pygame.locals import *
+
+pygame.init()
+
+largura = 400
+altura = 600
+tela = pygame.display.set_mode((largura, altura))
+pygame.display.set_caption('jogo tela')
+
+VERMELHO = (255, 0, 0)
+VERDE = (0, 255, 0)
+AZUL = (0, 0, 255)
+
+posicao_circulo = (largura // 2, altura // 4)
+raio_circulo = 40
+
+inicio_linha = (0, altura // 2)
+fim_linha = (largura, altura // 2)
+
+executando = True
+while executando:
+    for evento in pygame.event.get():
+        if evento.type == QUIT:
+            executando = False
+
+    tela.fill(VERMELHO)            
+
+    pygame.draw.line(tela, AZUL, inicio_linha, fim_linha, 5)
+    pygame.draw.circle(tela, VERDE, posicao_circulo, raio_circulo)
+    pygame.display.flip()
+pygame.quit()
+
